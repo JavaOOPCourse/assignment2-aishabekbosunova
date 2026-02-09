@@ -57,12 +57,19 @@ public class Book {
     @Override
     public String toString() {
 
-        return "Title: " + title + ", Author: " + author + ", Year: " + year + ", isAvailable" + isAvailable;
+        return "Title: " + title + ", Author: " + author + ", Year: " + year + ", isAvailable: " + isAvailable;
     }
 
     // TODO: Override equals()
     @Override
     public boolean equals(Object obj) {
-        return false;
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Book)) {
+            return false;
+        }
+        Book other = (Book) obj;
+        return title.equals(other.title) && author.equals(other.author) && year == other.year;
     }
 }
